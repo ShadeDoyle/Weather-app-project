@@ -27,18 +27,18 @@ li {
 button {
   border: none;
   font-size: 16px;
-  background: transparent;
   padding: 5px 10px;
   transition: all 150ms ease-in-out;
   display: block;
   margin: 0 auto;
-  position: relative;
-  left: 250px;
-  top: -58px;
-  background: #979494a9;
+  background: #807e7e79;
   color: white;
   border-radius: 10px;
+  position: relative;
+  left: 240px;
+  top: -58px;
 }
+
 button:hover,
 .submit-button:hover {
   background: transparent;
@@ -71,14 +71,14 @@ button:hover,
 .me {
   text-align: center;
 }
+
 .submit-button {
+  margin: 15px;
+  border: none;
   font-size: 16px;
-  background: transparent;
   padding: 5px 10px;
   transition: all 150ms ease-in-out;
-  border: none;
-  background: #979494a9;
+  background: #807e7e79;
   color: white;
   border-radius: 10px;
-  margin: 15px;
 }
