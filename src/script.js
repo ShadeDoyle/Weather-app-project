@@ -41,11 +41,13 @@ function showTemperature(response) {
   temperatureElement.innerHTML = `${temperature}`;
   let wind = Math.round(response.data.wind.speed);
   let windElement = document.querySelector("#windspeed");
-  windElement.innerHTML = `Wind speed: ${wind} MPH`;
+  windElement.innerHTML = `Wind speed: ${wind} Km/h`;
   let weatherDescription = document.querySelector("#description");
   weatherDescription.innerHTML = response.data.weather[0].description;
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function currentTemp(response) {
