@@ -22,7 +22,7 @@ let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
-dateElement.innerHTML = `${day} ${hours}:${minutes}`;
+dateElement.innerHTML = `Last updated: ${day} ${hours}:${minutes}`;
 
 function searchCity(event) {
   event.preventDefault();
@@ -36,7 +36,8 @@ function searchCity(event) {
 }
 
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
+  celciusTemp = response.data.main.temp;
+  let temperature = Math.round(celciusTemp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}`;
   let wind = Math.round(response.data.wind.speed);
@@ -76,3 +77,27 @@ function getCurrentPosition() {
 }
 let position = document.querySelector("#location");
 position.addEventListener("click", getCurrentPosition);
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+  fahrenheit.classList.add("active");
+  celcius.classList.remove("active");
+}
+
+function showCelciusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemp);
+  fahrenheit.classList.remove("active");
+  celcius.classList.add("active");
+}
+let celciusTemp = null;
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", showFahrenheitTemp);
+
+let celcius = document.querySelector("#celcius");
+celcius.addEventListener("click", showCelciusTemp);

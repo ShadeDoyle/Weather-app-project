@@ -84,3 +84,11 @@ button:hover,
   color: white;
   border-radius: 10px;
 }
+.active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+.active:hover {
+  color: black;
+}

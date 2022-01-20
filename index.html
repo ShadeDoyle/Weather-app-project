@@ -26,8 +26,18 @@
         <h1 id="city-name">London</h1>
 
         <form id="search-city">
-          <input type="text" placeholder="Enter a City" id="city-input" />
-          <input type="submit" value="Change city" class="submit-button" />
+          <input
+            type="text"
+            placeholder="Enter a City"
+            id="city-input"
+            autocomplete="off"
+          />
+          <input
+            type="submit"
+            value="Change City"
+            class="submit-button"
+            id="search-city "
+          />
         </form>
         <button id="location" class="location">Current Location</button>
         <ul>
@@ -46,9 +56,9 @@
 
             <span class="temperature" id="temperature">11</span>
             <span class="units">
-              <a href="" id="celcius">˚C</a> |
-              <a href="" id="fahrenheit">˚F</a></span
-            >
+              <a href="" id="celcius" class="active">˚C</a> |
+              <a href="" id="fahrenheit">˚F</a>
+            </span>
           </div>
 
           <div class="col-6">
