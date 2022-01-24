@@ -10,13 +10,12 @@ function searchCity(event) {
 }
 
 function showTemperature(response) {
-  celciusTemp = response.data.main.temp;
-  let temperature = Math.round(celciusTemp);
+  let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}`;
   let wind = Math.round(response.data.wind.speed);
   let windElement = document.querySelector("#windspeed");
-  windElement.innerHTML = `Wind speed: ${wind} Km/h`;
+  windElement.innerHTML = `Wind speed: ${wind} mph`;
   let weatherDescription = document.querySelector("#description");
   weatherDescription.innerHTML = response.data.weather[0].description;
   let humidity = document.querySelector("#humidity");
@@ -109,5 +108,3 @@ celcius.addEventListener("click", showCelciusTemp);
 
 let position = document.querySelector("#location");
 position.addEventListener("click", getCurrentPosition);
-
-searchCity("New York");
