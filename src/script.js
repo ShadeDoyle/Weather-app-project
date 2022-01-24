@@ -1,29 +1,3 @@
-let form = document.querySelector("#search-city");
-form.addEventListener("submit", searchCity);
-
-let now = new Date();
-let dateElement = document.querySelector("#date");
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-dateElement.innerHTML = `Last updated: ${day} ${hours}:${minutes}`;
-
 function searchCity(event) {
   event.preventDefault();
   let changeCity = document.querySelector("#city-input").value;
@@ -75,8 +49,6 @@ function showPosition(position) {
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
-let position = document.querySelector("#location");
-position.addEventListener("click", getCurrentPosition);
 
 function showFahrenheitTemp(event) {
   event.preventDefault();
@@ -94,6 +66,39 @@ function showCelciusTemp(event) {
   fahrenheit.classList.remove("active");
   celcius.classList.add("active");
 }
+
+function formatDate(date) {
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let dayIndex = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[dayIndex];
+
+  return `${day} ${hours}:${minutes}`;
+}
+
+let dateElement = document.querySelector("#date");
+let now = new Date();
+dateElement.innerHTML = `Last updated: ${formatDate(now)}`;
+
+let form = document.querySelector("#search-city");
+form.addEventListener("submit", searchCity);
+
 let celciusTemp = null;
 
 let fahrenheit = document.querySelector("#fahrenheit");
@@ -101,3 +106,8 @@ fahrenheit.addEventListener("click", showFahrenheitTemp);
 
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", showCelciusTemp);
+
+let position = document.querySelector("#location");
+position.addEventListener("click", getCurrentPosition);
+
+searchCity("New York");
