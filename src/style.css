@@ -92,3 +92,19 @@ button:hover,
 .active:hover {
   color: black;
 }
+.weeks-weather {
+  margin-top: 25px;
+  text-align: center;
+}
+.forecast-date {
+  font-size: 16px;
+}
+.forecast-temp {
+  font-size: 14px;
+}
+.forecast-max {
+  font-weight: bold;
+}
+.forcast-min {
+  opacity: 0.6;
+}

@@ -91,6 +91,31 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-2">
+              <div class="forecast-date">${day}</div>
+              <img
+                src="http://openweathermap.org/img/wn/50d@2x.png"
+                width="42"
+                alt=""
+              />
+              <div class="forecast-temp">
+                <span class="forecast-max"> 9˚</span>
+                <span class="forcast-min">6˚</span>
+              </div>
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let dateElement = document.querySelector("#date");
 let now = new Date();
 dateElement.innerHTML = `Last updated: ${formatDate(now)}`;
@@ -108,3 +133,5 @@ celcius.addEventListener("click", showCelciusTemp);
 
 let position = document.querySelector("#location");
 position.addEventListener("click", getCurrentPosition);
+
+displayForecast();
