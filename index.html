@@ -23,7 +23,7 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <h1 id="city-name">London</h1>
+        <h1 id="city-name"></h1>
 
         <form id="search-city">
           <input
@@ -36,13 +36,13 @@
             type="submit"
             value="Change City"
             class="submit-button"
-            id="search-city "
+            id="submit-city "
           />
         </form>
         <button id="location" class="location">Current Location</button>
         <ul>
-          <li id="date"></li>
-          <li id="description">Partly Cloudy</li>
+          <li>Last Updated: <span id="date"></span></li>
+          <li id="description"></li>
         </ul>
 
         <div class="row">
@@ -54,14 +54,14 @@
               class="weather-icon"
             />
 
-            <span class="temperature" id="temperature">11</span>
+            <span class="temperature" id="temperature"></span>
             <span class="units"> ˚C </span>
           </div>
 
           <div class="col-6">
             <ul>
-              <li id="humidity">Humidity: 87%</li>
-              <li id="windspeed">Wind: 4 mph</li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind Speed: <span id="windspeed"></span> mph</li>
             </ul>
           </div>
         </div>
