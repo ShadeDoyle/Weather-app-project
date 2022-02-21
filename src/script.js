@@ -121,7 +121,8 @@ function showPosition(position) {
   axios.get(apiUrl).then(currentTemp);
 }
 
-function getCurrentPosition() {
+function getCurrentPosition(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
